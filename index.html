@@ -3,110 +3,470 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MR Group Auction Property | Premium Properties</title>
+<title>MR Group | Elite Auction Properties</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary: #0a192f;
-  --secondary: #1e3a8a;
-  --gold: #dfa835;
-  --gold-light: #fef3c7;
-  --green: #10b981;
-  --bg: #f8fafc;
+  --royal-navy: #060d1a;
+  --royal-dark: #030710;
+  --gold-primary: #d4af37;
+  --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+  --gold-subtle: rgba(212, 175, 55, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.96);
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --emerald: #059669;
 }
 
-body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: #1e293b; }
-
-/* Header & Banner */
-header {
-  background: linear-gradient(135deg, rgba(10,25,47,0.92), rgba(15,23,42,0.85)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1400') center/cover fixed;
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--royal-navy);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.05) 0px, transparent 50%);
   color: #fff;
-  padding: 80px 20px 60px;
+  min-height: 100vh;
+}
+
+/* Header & Royal Banner */
+header {
+  background: linear-gradient(180deg, rgba(3, 7, 16, 0.85) 0%, rgba(6, 13, 26, 0.95) 100%), 
+              url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600') center/cover fixed;
+  padding: 60px 20px 60px;
   text-align: center;
   position: relative;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
-.badge {
-  background: rgba(223, 168, 53, 0.2);
-  color: var(--gold);
-  border: 1px solid var(--gold);
-  padding: 6px 16px;
+
+.brand-logo {
+  max-width: 140px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+  border: 2px solid var(--gold-primary);
+}
+
+.royal-badge {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--gold-primary);
+  color: #fcf6ba;
+  padding: 8px 24px;
   border-radius: 50px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  display: inline-block;
-  margin-bottom: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+header h1 {
+  font-family: 'Cinzel', serif;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  letter-spacing: 2px;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+header p {
+  font-size: 18px;
+  color: #cbd5e1;
+  margin: 0 0 25px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.header-contact {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.header-btn {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-btn:hover {
+  background: var(--gold-gradient);
+  color: var(--royal-dark);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Stats Ribbon */
+.stats-bar {
+  background: rgba(6, 13, 26, 0.8);
+  backdrop-filter: blur(15px);
+  margin: -35px auto 40px;
+  max-width: 1000px;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+  position: relative;
+  z-index: 10;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h2 {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.stat-item p {
+  margin: 5px 0 0;
+  color: #94a3b8;
+  font-size: 13px;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
-header h1 { color: var(--gold); font-size: 44px; margin: 0 0 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-header p { font-size: 18px; margin: 5px 0; color: #cbd5e1; }
-.header-contact { margin-top: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-.header-btn { background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); color: #fff; padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; font-weight: bold; font-size: 15px; transition: 0.3s; }
-.header-btn:hover { background: var(--gold); color: #000; }
 
-/* Stats Bar */
-.stats-bar { background: #fff; margin: -30px auto 30px; max-width: 1000px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; justify-content: space-around; padding: 20px; position: relative; z-index: 10; text-align: center; }
-.stat-item h2 { margin: 0; color: var(--secondary); font-size: 28px; }
-.stat-item p { margin: 5px 0 0; color: #64748b; font-size: 14px; font-weight: 600; }
+/* Main Container */
+.container {
+  max-width: 1240px;
+  margin: auto;
+  padding: 0 20px 60px;
+}
 
-/* Container & Search */
-.container { max-width: 1200px; margin: auto; padding: 0 20px 40px; }
-.search-box { position: relative; margin-bottom: 25px; }
-.search { width: 100%; padding: 16px 20px 16px 50px; border-radius: 12px; border: 2px solid #e2e8f0; font-size: 16px; box-sizing: border-box; outline: none; transition: 0.3s; background: #fff; }
-.search:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(223, 168, 53, 0.2); }
-.search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 18px; }
+/* Search Box */
+.search-box {
+  position: relative;
+  margin-bottom: 30px;
+}
 
-/* Filter Tabs */
-.filter-tabs { display: flex; gap: 10px; margin-bottom: 30px; overflow-x: auto; padding-bottom: 5px; }
-.tab-btn { padding: 10px 20px; border: none; background: #e2e8f0; border-radius: 25px; font-weight: 600; color: #475569; cursor: pointer; transition: 0.3s; white-space: nowrap; }
-.tab-btn.active, .tab-btn:hover { background: var(--secondary); color: #fff; }
+.search {
+  width: 100%;
+  padding: 18px 25px 18px 55px;
+  border-radius: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  transition: all 0.3s ease;
+}
 
-/* Grid & Cards */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-.card { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #f1f5f9; position: relative; display: flex; flex-direction: column; }
-.card:hover { transform: translateY(-8px); box-shadow: 0 20px 35px rgba(0,0,0,0.12); }
-.card-img-wrap { position: relative; height: 220px; overflow: hidden; }
-.card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.card:hover img { transform: scale(1.05); }
-.verified-tag { position: absolute; top: 12px; left: 12px; background: rgba(16, 185, 129, 0.9); color: #fff; font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; backdrop-filter: blur(4px); }
-.type-tag { position: absolute; top: 12px; right: 12px; background: rgba(10, 25, 47, 0.85); color: var(--gold); font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; }
+.search::placeholder {
+  color: #64748b;
+}
 
-.content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-.content h3 { margin: 0 0 8px; font-size: 20px; color: var(--primary); }
-.location { color: #64748b; font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-.prop-id { font-size: 13px; color: #94a3b8; margin-bottom: 15px; }
+.search:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+  background: rgba(15, 23, 42, 0.9);
+}
 
-.price-box { background: #f8fafc; padding: 12px; border-radius: 10px; border-left: 4px solid var(--gold); margin-bottom: 15px; }
-.price-label { font-size: 12px; color: #64748b; text-transform: uppercase; font-weight: bold; }
-.price { color: var(--green); font-size: 22px; font-weight: 800; margin-top: 2px; }
-.auction-date { color: #d97706; font-weight: 700; font-size: 14px; margin-bottom: 15px; display: flex; align-items: center; gap: 6px; }
+.search-icon {
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-primary);
+  font-size: 18px;
+}
 
-.btns { display: flex; gap: 10px; margin-top: auto; }
-.btn { flex: 1; text-align: center; padding: 12px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: bold; font-size: 14px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
-.call { background: var(--secondary); }
-.call:hover { background: #1e40af; }
-.wa { background: #25D366; }
-.wa:hover { background: #1eb954; }
+/* Category Filters */
+.filter-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
 
-/* Floating WA */
-.float-wa { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 25px rgba(37,211,102,0.4); z-index: 100; text-decoration: none; transition: 0.3s; }
-.float-wa:hover { transform: scale(1.1); }
+.tab-btn {
+  padding: 12px 26px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 50px;
+  font-weight: 600;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
 
-footer { background: var(--primary); color: var(--gold); padding: 30px 20px; text-align: center; font-size: 14px; border-top: 2px solid var(--gold); }
+.tab-btn.active, .tab-btn:hover {
+  background: var(--gold-gradient);
+  color: var(--royal-dark);
+  border-color: transparent;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Property Cards Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--glass-bg);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  display: flex;
+  flex-direction: column;
+  color: var(--text-dark);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+  border-color: var(--gold-primary);
+}
+
+.card-img-wrap {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+.verified-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(6, 13, 26, 0.85);
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+  letter-spacing: 0.5px;
+}
+
+.type-tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--gold-gradient);
+  color: var(--royal-dark);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.content {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content h3 {
+  margin: 0 0 10px;
+  font-family: 'Cinzel', serif;
+  font-size: 21px;
+  color: var(--royal-dark);
+  font-weight: 700;
+}
+
+.location {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.location i {
+  color: var(--gold-primary);
+}
+
+.prop-id {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.price-box {
+  background: #f8fafc;
+  padding: 14px;
+  border-radius: 12px;
+  border-left: 4px solid var(--gold-primary);
+  margin-bottom: 18px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.price-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.price {
+  color: var(--emerald);
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.auction-date {
+  color: #d97706;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btns {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.call {
+  background: var(--royal-dark);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.call:hover {
+  background: #0f172a;
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+}
+
+.wa {
+  background: #059669;
+}
+
+.wa:hover {
+  background: #047857;
+}
+
+/* Floating WhatsApp */
+.float-wa {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #25D366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  z-index: 100;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.float-wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+}
+
+footer {
+  background: var(--royal-dark);
+  color: var(--gold-primary);
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+footer p {
+  margin: 5px 0;
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="badge"><i class="fa-solid fa-shield-halved"></i> 100% VERIFIED BANK AUCTIONS</div>
+  <img src="https://i.ibb.co/vvX7BZkp/Whats-App-Image-2026-09-01-at-10-11-22-AM.jpg" alt="MR Group Logo" class="brand-logo">
+  <br>
+  <div class="royal-badge"><i class="fa-solid fa-crown"></i> Premium Auction Deals</div>
   <h1>MR GROUP AUCTION PROPERTY</h1>
-  <p>Exclusive Bank Auction Deals in Surat, Vapi & Nearby Regions</p>
+  <p>Verified Bank Auction Properties Across Surat & Vapi Region</p>
   <div class="header-contact">
     <a href="tel:+919099912777" class="header-btn"><i class="fa-solid fa-phone"></i> +91 90999 12777</a>
-    <a href="https://wa.me/919099912777" target="_blank" class="header-btn"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+    <a href="https://wa.me/919099912777" target="_blank" class="header-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Concierge</a>
   </div>
 </header>
 
-<!-- Stats Bar -->
 <div class="stats-bar">
   <div class="stat-item">
     <h2>500+</h2>
@@ -114,7 +474,7 @@ footer { background: var(--primary); color: var(--gold); padding: 30px 20px; tex
   </div>
   <div class="stat-item">
     <h2>30-50%</h2>
-    <p>Below Market Price</p>
+    <p>Below Market Value</p>
   </div>
   <div class="stat-item">
     <h2>100%</h2>
@@ -123,26 +483,23 @@ footer { background: var(--primary); color: var(--gold); padding: 30px 20px; tex
 </div>
 
 <div class="container">
-  <!-- Search Field -->
   <div class="search-box">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input class="search" id="search" placeholder="Search by area, city or property type (e.g. Vesu, Flat, Shop)..." onkeyup="filterCards()">
+    <input class="search" id="search" placeholder="Search by area, location, or type (e.g. Vesu, Bunglow, Commercial)..." onkeyup="filterCards()">
   </div>
 
-  <!-- Filter Buttons -->
   <div class="filter-tabs">
-    <button class="tab-btn active" onclick="filterCategory('all')">All Properties</button>
-    <button class="tab-btn" onclick="filterCategory('flat')">Flats</button>
-    <button class="tab-btn" onclick="filterCategory('bunglow')">Bunglows / Houses</button>
-    <button class="tab-btn" onclick="filterCategory('shop')">Commercial Shops</button>
+    <button class="tab-btn active" onclick="filterCategory('all')">All Portfolio</button>
+    <button class="tab-btn" onclick="filterCategory('flat')">Luxury Flats</button>
+    <button class="tab-btn" onclick="filterCategory('bunglow')">Bunglows & Villas</button>
+    <button class="tab-btn" onclick="filterCategory('shop')">Commercial Spaces</button>
   </div>
 
   <div class="grid" id="grid">
 
-    <!-- Property 1 -->
     <div class="card" data-category="flat" data-search="2 bhk flat althan, surat">
       <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="verified-tag"><i class="fa-solid fa-shield-halved"></i> Bank Verified</span>
         <span class="type-tag">Flat</span>
         <img src="https://i.ibb.co/1tS4h49n/Whats-App-Image-2026-08-30-at-3-14-45-AM.jpg" alt="2 BHK Flat Althan">
       </div>
@@ -162,10 +519,9 @@ footer { background: var(--primary); color: var(--gold); padding: 30px 20px; tex
       </div>
     </div>
 
-    <!-- Property 2 -->
     <div class="card" data-category="shop" data-search="commercial shop dindoli, surat">
       <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="verified-tag"><i class="fa-solid fa-shield-halved"></i> Bank Verified</span>
         <span class="type-tag">Commercial</span>
         <img src="https://i.ibb.co/C5VXvzDr/uma-plaza-dindoli.jpg" alt="Commercial Shop Dindoli">
       </div>
@@ -185,10 +541,9 @@ footer { background: var(--primary); color: var(--gold); padding: 30px 20px; tex
       </div>
     </div>
 
-    <!-- Property 3 -->
     <div class="card" data-category="flat" data-search="4 bhk flat (star galaxy) vesu, surat">
       <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="verified-tag"><i class="fa-solid fa-shield-halved"></i> Bank Verified</span>
         <span class="type-tag">Flat</span>
         <img src="https://i.ibb.co/hR6ThfJp/star-galaxy-vesu.png" alt="4 BHK Flat Vesu">
       </div>
@@ -208,10 +563,9 @@ footer { background: var(--primary); color: var(--gold); padding: 30px 20px; tex
       </div>
     </div>
 
-    <!-- Property 4 -->
     <div class="card" data-category="flat" data-search="residential flat (umiya nagar) dindoli, surat">
       <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="verified-tag"><i class="fa-solid fa-shield-halved"></i> Bank Verified</span>
         <span class="type-tag">Flat</span>
         <img src="https://i.ibb.co/B5Q4LQBh/umiyanagar-flat-dindoli.jpg" alt="Residential Flat Dindoli">
       </div>
@@ -231,246 +585,8 @@ footer { background: var(--primary); color: var(--gold); padding: 30px 20px; tex
       </div>
     </div>
 
-    <!-- Property 5 -->
     <div class="card" data-category="flat" data-search="residential flat (sai samarth) vesu, surat">
       <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="verified-tag"><i class="fa-solid fa-shield-halved"></i> Bank Verified</span>
         <span class="type-tag">Flat</span>
-        <img src="https://i.ibb.co/dJbM0vYT/sai-samarth-vesu.jpg" alt="Residential Flat Vesu">
-      </div>
-      <div class="content">
-        <h3>Residential Flat (Sai Samarth)</h3>
-        <div class="location"><i class="fa-solid fa-location-dot"></i> Vesu, Surat</div>
-        <div class="prop-id"><b>Property ID:</b> MRG-VES-05</div>
-        <div class="price-box">
-          <div class="price-label">Reserve Price</div>
-          <div class="price">₹ 34,10,000</div>
-        </div>
-        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 16 September</div>
-        <div class="btns">
-          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VES-05" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Property 6 -->
-    <div class="card" data-category="bunglow" data-search="bunglow varachha, surat">
-      <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
-        <span class="type-tag">Bunglow</span>
-        <img src="https://i.ibb.co/nMh92Bd2/55ebfb24-7c42-42fb-acad-e4eb9f3545e2.jpg" alt="Bunglow Varachha">
-      </div>
-      <div class="content">
-        <h3>Luxury Bunglow</h3>
-        <div class="location"><i class="fa-solid fa-location-dot"></i> Varachha, Surat</div>
-        <div class="prop-id"><b>Property ID:</b> MRG-VAR-06</div>
-        <div class="price-box">
-          <div class="price-label">Reserve Price</div>
-          <div class="price">₹ 77,00,000</div>
-        </div>
-        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: Next Month</div>
-        <div class="btns">
-          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VAR-06" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Property 7 -->
-    <div class="card" data-category="shop" data-search="commercial shop dindoli, surat">
-      <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
-        <span class="type-tag">Commercial</span>
-        <img src="https://i.ibb.co/x947GS3/c2e7cf2f-be82-4267-bd7f-9273bf0df685.jpg" alt="Commercial Shop Dindoli">
-      </div>
-      <div class="content">
-        <h3>Commercial Shop</h3>
-        <div class="location"><i class="fa-solid fa-location-dot"></i> Dindoli, Surat</div>
-        <div class="prop-id"><b>Property ID:</b> MRG-DIN-07</div>
-        <div class="price-box">
-          <div class="price-label">Reserve Price</div>
-          <div class="price">₹ 18,36,000</div>
-        </div>
-        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 23 September</div>
-        <div class="btns">
-          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-07" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Property 8 -->
-    <div class="card" data-category="shop" data-search="2 shops commercial shop dindoli, surat">
-      <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
-        <span class="type-tag">Commercial</span>
-        <img src="https://i.ibb.co/3YGd5HVt/3d12a3590af6149d3168de2e748c7340.jpg" alt="2 Shops Dindoli">
-      </div>
-      <div class="content">
-        <h3>2 Commercial Shops</h3>
-        <div class="location"><i class="fa-solid fa-location-dot"></i> Dindoli, Surat</div>
-        <div class="prop-id"><b>Property ID:</b> MRG-DIN-08</div>
-        <div class="price-box">
-          <div class="price-label">Reserve Price</div>
-          <div class="price">₹ 32,08,000</div>
-        </div>
-        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 29 September</div>
-        <div class="btns">
-          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-08" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Property 9 -->
-    <div class="card" data-category="bunglow" data-search="individual house jolva, palsana">
-      <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
-        <span class="type-tag">House</span>
-        <img src="https://i.ibb.co/CdmbF3Q/a90194a7975dd15878c701ef28761803.jpg" alt="Individual House Jolva">
-      </div>
-      <div class="content">
-        <h3>Individual House</h3>
-        <div class="location"><i class="fa-solid fa-location-dot"></i> Jolva, Palsana</div>
-        <div class="prop-id"><b>Property ID:</b> MRG-JOL-09</div>
-        <div class="price-box">
-          <div class="price-label">Reserve Price</div>
-          <div class="price">₹ 6,87,000</div>
-        </div>
-        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 7 September</div>
-        <div class="btns">
-          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-JOL-09" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Property 10 -->
-    <div class="card" data-category="bunglow" data-search="residential property house kareli, palsana">
-      <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
-        <span class="type-tag">House</span>
-        <img src="https://i.ibb.co/jPTLgBhm/804a82183747b6fa144789a10f537513.jpg" alt="Residential Property Kareli">
-      </div>
-      <div class="content">
-        <h3>Residential House</h3>
-        <div class="location"><i class="fa-solid fa-location-dot"></i> Kareli, Palsana</div>
-        <div class="prop-id"><b>Property ID:</b> MRG-KAR-10</div>
-        <div class="price-box">
-          <div class="price-label">Reserve Price</div>
-          <div class="price">₹ 4,30,000</div>
-        </div>
-        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 15 September</div>
-        <div class="btns">
-          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-KAR-10" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Property 11 -->
-    <div class="card" data-category="bunglow" data-search="bunglow soyani, surat">
-      <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
-        <span class="type-tag">Bunglow</span>
-        <img src="https://i.ibb.co/Q0fZSzT/e668041a9b901b4ca3315038d4abbe7e.jpg" alt="Bunglow Soyani">
-      </div>
-      <div class="content">
-        <h3>Spacious Bunglow</h3>
-        <div class="location"><i class="fa-solid fa-location-dot"></i> Soyani, Surat</div>
-        <div class="prop-id"><b>Property ID:</b> MRG-SOY-11</div>
-        <div class="price-box">
-          <div class="price-label">Reserve Price</div>
-          <div class="price">₹ 13,50,000</div>
-        </div>
-        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 16 September</div>
-        <div class="btns">
-          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-SOY-11" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Property 12 -->
-    <div class="card" data-category="flat" data-search="flat umbergaon, valsad">
-      <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
-        <span class="type-tag">Flat</span>
-        <img src="https://i.ibb.co/5hz349m9/88af2c0589e1b5ed582787dab66fd0c9.png" alt="Flat Umbergaon">
-      </div>
-      <div class="content">
-        <h3>Residential Flat</h3>
-        <div class="location"><i class="fa-solid fa-location-dot"></i> Umbergaon, Valsad</div>
-        <div class="prop-id"><b>Property ID:</b> MRG-UMB-12</div>
-        <div class="price-box">
-          <div class="price-label">Reserve Price</div>
-          <div class="price">₹ 9,40,000</div>
-        </div>
-        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 9 September</div>
-        <div class="btns">
-          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-UMB-12" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Property 13 -->
-    <div class="card" data-category="flat" data-search="flat valwada, surat">
-      <div class="card-img-wrap">
-        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
-        <span class="type-tag">Flat</span>
-        <img src="https://i.ibb.co/fBdRcYy/fb640c90c80606d60c7f0009c7a4223d.jpg" alt="Flat Valwada">
-      </div>
-      <div class="content">
-        <h3>Residential Flat</h3>
-        <div class="location"><i class="fa-solid fa-location-dot"></i> Valwada, Surat</div>
-        <div class="prop-id"><b>Property ID:</b> MRG-VAL-13</div>
-        <div class="price-box">
-          <div class="price-label">Reserve Price</div>
-          <div class="price">₹ 13,40,000</div>
-        </div>
-        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 24 September</div>
-        <div class="btns">
-          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VAL-13" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Floating WhatsApp Icon -->
-<a href="https://wa.me/919099912777" class="float-wa" target="_blank" title="Chat on WhatsApp">
-  <i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<footer>
-  <p>© 2026 MR Group Auction Property | All Rights Reserved</p>
-  <p style="color:#94a3b8; font-size:12px; margin-top:5px;">Disclaimer: Auction dates and prices are subject to bank terms and updates.</p>
-</footer>
-
-<script>
-function filterCards(){
-  let q = document.getElementById('search').value.toLowerCase();
-  document.querySelectorAll('.card').forEach(c => {
-    c.style.display = c.dataset.search.includes(q) ? 'flex' : 'none';
-  });
-}
-
-function filterCategory(cat){
-  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-  
-  document.querySelectorAll('.card').forEach(c => {
-    if(cat === 'all' || c.dataset.category === cat){
-      c.style.display = 'flex';
-    } else {
-      c.style.display = 'none';
-    }
-  });
-}
-</script>
-</body>
-</html>
+        <img src="
