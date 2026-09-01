@@ -3,240 +3,474 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MR Group Auction Property</title>
+<title>MR Group Auction Property | Premium Properties</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#eef3f8}
-header{background:linear-gradient(rgba(5,20,45,.7),rgba(5,20,45,.7)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1400') center/cover;color:#fff;padding:70px 20px;text-align:center}
-header h1{color:#FFD700;font-size:42px;margin:0}
-.container{max-width:1100px;margin:auto;padding:20px}
-.search{width:100%;padding:14px;border-radius:10px;border:1px solid #ccc;margin-bottom:20px;box-sizing:border-box}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,.12)}
-.card img{width:100%;height:210px;object-fit:cover}
-.content{padding:16px}
-.price{color:#0f9d58;font-size:24px;font-weight:bold;margin-top:6px}
-.auction-date{color:#d97706;font-weight:bold;font-size:14px;margin-top:6px}
-.btns{display:flex;gap:10px;margin-top:12px}
-.btn{flex:1;text-align:center;padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:bold}
-.call{background:#1e3a8a}.wa{background:#25D366}
-footer{background:#081529;color:#FFD700;padding:20px;text-align:center;margin-top:30px}
+:root {
+  --primary: #0a192f;
+  --secondary: #1e3a8a;
+  --gold: #dfa835;
+  --gold-light: #fef3c7;
+  --green: #10b981;
+  --bg: #f8fafc;
+}
+
+body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: #1e293b; }
+
+/* Header & Banner */
+header {
+  background: linear-gradient(135deg, rgba(10,25,47,0.92), rgba(15,23,42,0.85)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1400') center/cover fixed;
+  color: #fff;
+  padding: 80px 20px 60px;
+  text-align: center;
+  position: relative;
+}
+.badge {
+  background: rgba(223, 168, 53, 0.2);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+header h1 { color: var(--gold); font-size: 44px; margin: 0 0 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+header p { font-size: 18px; margin: 5px 0; color: #cbd5e1; }
+.header-contact { margin-top: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.header-btn { background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); color: #fff; padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; font-weight: bold; font-size: 15px; transition: 0.3s; }
+.header-btn:hover { background: var(--gold); color: #000; }
+
+/* Stats Bar */
+.stats-bar { background: #fff; margin: -30px auto 30px; max-width: 1000px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; justify-content: space-around; padding: 20px; position: relative; z-index: 10; text-align: center; }
+.stat-item h2 { margin: 0; color: var(--secondary); font-size: 28px; }
+.stat-item p { margin: 5px 0 0; color: #64748b; font-size: 14px; font-weight: 600; }
+
+/* Container & Search */
+.container { max-width: 1200px; margin: auto; padding: 0 20px 40px; }
+.search-box { position: relative; margin-bottom: 25px; }
+.search { width: 100%; padding: 16px 20px 16px 50px; border-radius: 12px; border: 2px solid #e2e8f0; font-size: 16px; box-sizing: border-box; outline: none; transition: 0.3s; background: #fff; }
+.search:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(223, 168, 53, 0.2); }
+.search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 18px; }
+
+/* Filter Tabs */
+.filter-tabs { display: flex; gap: 10px; margin-bottom: 30px; overflow-x: auto; padding-bottom: 5px; }
+.tab-btn { padding: 10px 20px; border: none; background: #e2e8f0; border-radius: 25px; font-weight: 600; color: #475569; cursor: pointer; transition: 0.3s; white-space: nowrap; }
+.tab-btn.active, .tab-btn:hover { background: var(--secondary); color: #fff; }
+
+/* Grid & Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+.card { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #f1f5f9; position: relative; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-8px); box-shadow: 0 20px 35px rgba(0,0,0,0.12); }
+.card-img-wrap { position: relative; height: 220px; overflow: hidden; }
+.card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.card:hover img { transform: scale(1.05); }
+.verified-tag { position: absolute; top: 12px; left: 12px; background: rgba(16, 185, 129, 0.9); color: #fff; font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; backdrop-filter: blur(4px); }
+.type-tag { position: absolute; top: 12px; right: 12px; background: rgba(10, 25, 47, 0.85); color: var(--gold); font-size: 12px; font-weight: bold; padding: 5px 12px; border-radius: 20px; }
+
+.content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.content h3 { margin: 0 0 8px; font-size: 20px; color: var(--primary); }
+.location { color: #64748b; font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.prop-id { font-size: 13px; color: #94a3b8; margin-bottom: 15px; }
+
+.price-box { background: #f8fafc; padding: 12px; border-radius: 10px; border-left: 4px solid var(--gold); margin-bottom: 15px; }
+.price-label { font-size: 12px; color: #64748b; text-transform: uppercase; font-weight: bold; }
+.price { color: var(--green); font-size: 22px; font-weight: 800; margin-top: 2px; }
+.auction-date { color: #d97706; font-weight: 700; font-size: 14px; margin-bottom: 15px; display: flex; align-items: center; gap: 6px; }
+
+.btns { display: flex; gap: 10px; margin-top: auto; }
+.btn { flex: 1; text-align: center; padding: 12px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: bold; font-size: 14px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.call { background: var(--secondary); }
+.call:hover { background: #1e40af; }
+.wa { background: #25D366; }
+.wa:hover { background: #1eb954; }
+
+/* Floating WA */
+.float-wa { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 25px rgba(37,211,102,0.4); z-index: 100; text-decoration: none; transition: 0.3s; }
+.float-wa:hover { transform: scale(1.1); }
+
+footer { background: var(--primary); color: var(--gold); padding: 30px 20px; text-align: center; font-size: 14px; border-top: 2px solid var(--gold); }
 </style>
 </head>
 <body>
+
 <header>
-<h1>MR GROUP AUCTION PROPERTY</h1>
-<p>Surat • Vapi • Verified Bank Auction Properties</p>
-<p><b>📞 90999 12777 | 💬 WhatsApp Available</b></p>
+  <div class="badge"><i class="fa-solid fa-shield-halved"></i> 100% VERIFIED BANK AUCTIONS</div>
+  <h1>MR GROUP AUCTION PROPERTY</h1>
+  <p>Exclusive Bank Auction Deals in Surat, Vapi & Nearby Regions</p>
+  <div class="header-contact">
+    <a href="tel:+919099912777" class="header-btn"><i class="fa-solid fa-phone"></i> +91 90999 12777</a>
+    <a href="https://wa.me/919099912777" target="_blank" class="header-btn"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+  </div>
 </header>
 
+<!-- Stats Bar -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <h2>500+</h2>
+    <p>Properties Sold</p>
+  </div>
+  <div class="stat-item">
+    <h2>30-50%</h2>
+    <p>Below Market Price</p>
+  </div>
+  <div class="stat-item">
+    <h2>100%</h2>
+    <p>Bank Verified</p>
+  </div>
+</div>
+
 <div class="container">
-<input class="search" id="search" placeholder="Search Area or Property..." onkeyup="filterCards()">
+  <!-- Search Field -->
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input class="search" id="search" placeholder="Search by area, city or property type (e.g. Vesu, Flat, Shop)..." onkeyup="filterCards()">
+  </div>
 
-<div class="grid" id="grid">
+  <!-- Filter Buttons -->
+  <div class="filter-tabs">
+    <button class="tab-btn active" onclick="filterCategory('all')">All Properties</button>
+    <button class="tab-btn" onclick="filterCategory('flat')">Flats</button>
+    <button class="tab-btn" onclick="filterCategory('bunglow')">Bunglows / Houses</button>
+    <button class="tab-btn" onclick="filterCategory('shop')">Commercial Shops</button>
+  </div>
 
-<!-- Property 1 -->
-<div class="card" data-search="2 bhk flat althan, surat">
-<img src="https://i.ibb.co/1tS4h49n/Whats-App-Image-2026-08-30-at-3-14-45-AM.jpg" alt="2 BHK Flat Althan">
-<div class="content">
-<h3>2 BHK Flat</h3>
-<p>📍 Althan, Surat</p>
-<p><b>Property ID:</b> MRG-ALT-01</p>
-<div class="price">Reserve Price: ₹ 34,65,000</div>
-<div class="auction-date">📅 Auction Date: Next Month</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-ALT-01" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
+  <div class="grid" id="grid">
+
+    <!-- Property 1 -->
+    <div class="card" data-category="flat" data-search="2 bhk flat althan, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Flat</span>
+        <img src="https://i.ibb.co/1tS4h49n/Whats-App-Image-2026-08-30-at-3-14-45-AM.jpg" alt="2 BHK Flat Althan">
+      </div>
+      <div class="content">
+        <h3>2 BHK Flat</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Althan, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-ALT-01</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 34,65,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: Next Month</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-ALT-01" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 2 -->
+    <div class="card" data-category="shop" data-search="commercial shop dindoli, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Commercial</span>
+        <img src="https://i.ibb.co/C5VXvzDr/uma-plaza-dindoli.jpg" alt="Commercial Shop Dindoli">
+      </div>
+      <div class="content">
+        <h3>Commercial Shop</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Dindoli, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-DIN-02</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 70,20,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 10 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-02" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 3 -->
+    <div class="card" data-category="flat" data-search="4 bhk flat (star galaxy) vesu, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Flat</span>
+        <img src="https://i.ibb.co/hR6ThfJp/star-galaxy-vesu.png" alt="4 BHK Flat Vesu">
+      </div>
+      <div class="content">
+        <h3>4 BHK Flat (Star Galaxy)</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Vesu, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-VES-03</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 87,00,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 16 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VES-03" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 4 -->
+    <div class="card" data-category="flat" data-search="residential flat (umiya nagar) dindoli, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Flat</span>
+        <img src="https://i.ibb.co/B5Q4LQBh/umiyanagar-flat-dindoli.jpg" alt="Residential Flat Dindoli">
+      </div>
+      <div class="content">
+        <h3>Residential Flat (Umiya Nagar)</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Dindoli, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-DIN-04</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 24,10,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 24 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-04" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 5 -->
+    <div class="card" data-category="flat" data-search="residential flat (sai samarth) vesu, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Flat</span>
+        <img src="https://i.ibb.co/dJbM0vYT/sai-samarth-vesu.jpg" alt="Residential Flat Vesu">
+      </div>
+      <div class="content">
+        <h3>Residential Flat (Sai Samarth)</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Vesu, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-VES-05</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 34,10,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 16 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VES-05" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 6 -->
+    <div class="card" data-category="bunglow" data-search="bunglow varachha, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Bunglow</span>
+        <img src="https://i.ibb.co/nMh92Bd2/55ebfb24-7c42-42fb-acad-e4eb9f3545e2.jpg" alt="Bunglow Varachha">
+      </div>
+      <div class="content">
+        <h3>Luxury Bunglow</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Varachha, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-VAR-06</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 77,00,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: Next Month</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VAR-06" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 7 -->
+    <div class="card" data-category="shop" data-search="commercial shop dindoli, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Commercial</span>
+        <img src="https://i.ibb.co/x947GS3/c2e7cf2f-be82-4267-bd7f-9273bf0df685.jpg" alt="Commercial Shop Dindoli">
+      </div>
+      <div class="content">
+        <h3>Commercial Shop</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Dindoli, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-DIN-07</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 18,36,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 23 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-07" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 8 -->
+    <div class="card" data-category="shop" data-search="2 shops commercial shop dindoli, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Commercial</span>
+        <img src="https://i.ibb.co/3YGd5HVt/3d12a3590af6149d3168de2e748c7340.jpg" alt="2 Shops Dindoli">
+      </div>
+      <div class="content">
+        <h3>2 Commercial Shops</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Dindoli, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-DIN-08</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 32,08,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 29 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-08" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 9 -->
+    <div class="card" data-category="bunglow" data-search="individual house jolva, palsana">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">House</span>
+        <img src="https://i.ibb.co/CdmbF3Q/a90194a7975dd15878c701ef28761803.jpg" alt="Individual House Jolva">
+      </div>
+      <div class="content">
+        <h3>Individual House</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Jolva, Palsana</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-JOL-09</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 6,87,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 7 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-JOL-09" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 10 -->
+    <div class="card" data-category="bunglow" data-search="residential property house kareli, palsana">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">House</span>
+        <img src="https://i.ibb.co/jPTLgBhm/804a82183747b6fa144789a10f537513.jpg" alt="Residential Property Kareli">
+      </div>
+      <div class="content">
+        <h3>Residential House</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Kareli, Palsana</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-KAR-10</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 4,30,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 15 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-KAR-10" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 11 -->
+    <div class="card" data-category="bunglow" data-search="bunglow soyani, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Bunglow</span>
+        <img src="https://i.ibb.co/Q0fZSzT/e668041a9b901b4ca3315038d4abbe7e.jpg" alt="Bunglow Soyani">
+      </div>
+      <div class="content">
+        <h3>Spacious Bunglow</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Soyani, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-SOY-11</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 13,50,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 16 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-SOY-11" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 12 -->
+    <div class="card" data-category="flat" data-search="flat umbergaon, valsad">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Flat</span>
+        <img src="https://i.ibb.co/5hz349m9/88af2c0589e1b5ed582787dab66fd0c9.png" alt="Flat Umbergaon">
+      </div>
+      <div class="content">
+        <h3>Residential Flat</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Umbergaon, Valsad</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-UMB-12</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 9,40,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 9 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-UMB-12" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property 13 -->
+    <div class="card" data-category="flat" data-search="flat valwada, surat">
+      <div class="card-img-wrap">
+        <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Bank Verified</span>
+        <span class="type-tag">Flat</span>
+        <img src="https://i.ibb.co/fBdRcYy/fb640c90c80606d60c7f0009c7a4223d.jpg" alt="Flat Valwada">
+      </div>
+      <div class="content">
+        <h3>Residential Flat</h3>
+        <div class="location"><i class="fa-solid fa-location-dot"></i> Valwada, Surat</div>
+        <div class="prop-id"><b>Property ID:</b> MRG-VAL-13</div>
+        <div class="price-box">
+          <div class="price-label">Reserve Price</div>
+          <div class="price">₹ 13,40,000</div>
+        </div>
+        <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: 24 September</div>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VAL-13" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
-</div></div>
 
-<!-- Property 2 -->
-<div class="card" data-search="commercial shop dindoli, surat">
-<img src="https://i.ibb.co/C5VXvzDr/uma-plaza-dindoli.jpg" alt="Commercial Shop Dindoli">
-<div class="content">
-<h3>Commercial Shop</h3>
-<p>📍 Dindoli, Surat</p>
-<p><b>Property ID:</b> MRG-DIN-02</p>
-<div class="price">Reserve Price: ₹ 70,20,000</div>
-<div class="auction-date">📅 Auction Date: 10 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-02" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
+<!-- Floating WhatsApp Icon -->
+<a href="https://wa.me/919099912777" class="float-wa" target="_blank" title="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 
-<!-- Property 3 -->
-<div class="card" data-search="4 bhk flat (star galaxy) vesu, surat">
-<img src="https://i.ibb.co/hR6ThfJp/star-galaxy-vesu.png" alt="4 BHK Flat Vesu">
-<div class="content">
-<h3>4 BHK Flat (Star Galaxy)</h3>
-<p>📍 Vesu, Surat</p>
-<p><b>Property ID:</b> MRG-VES-03</p>
-<div class="price">Reserve Price: ₹ 87,00,000</div>
-<div class="auction-date">📅 Auction Date: 16 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VES-03" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
+<footer>
+  <p>© 2026 MR Group Auction Property | All Rights Reserved</p>
+  <p style="color:#94a3b8; font-size:12px; margin-top:5px;">Disclaimer: Auction dates and prices are subject to bank terms and updates.</p>
+</footer>
 
-<!-- Property 4 -->
-<div class="card" data-search="residential flat (umiya nagar) dindoli, surat">
-<img src="https://i.ibb.co/B5Q4LQBh/umiyanagar-flat-dindoli.jpg" alt="Residential Flat Dindoli">
-<div class="content">
-<h3>Residential Flat (Umiya Nagar)</h3>
-<p>📍 Dindoli, Surat</p>
-<p><b>Property ID:</b> MRG-DIN-04</p>
-<div class="price">Reserve Price: ₹ 24,10,000</div>
-<div class="auction-date">📅 Auction Date: 24 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-04" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-<!-- Property 5 -->
-<div class="card" data-search="residential flat (sai samarth) vesu, surat">
-<img src="https://i.ibb.co/dJbM0vYT/sai-samarth-vesu.jpg" alt="Residential Flat Vesu">
-<div class="content">
-<h3>Residential Flat (Sai Samarth)</h3>
-<p>📍 Vesu, Surat</p>
-<p><b>Property ID:</b> MRG-VES-05</p>
-<div class="price">Reserve Price: ₹ 34,10,000</div>
-<div class="auction-date">📅 Auction Date: 16 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VES-05" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-<!-- Property 6 -->
-<div class="card" data-search="bunglow varachha, surat">
-<img src="https://i.ibb.co/nMh92Bd2/55ebfb24-7c42-42fb-acad-e4eb9f3545e2.jpg" alt="Bunglow Varachha">
-<div class="content">
-<h3>Bunglow</h3>
-<p>📍 Varachha, Surat</p>
-<p><b>Property ID:</b> MRG-VAR-06</p>
-<div class="price">Reserve Price: ₹ 77,00,000</div>
-<div class="auction-date">📅 Auction Date: Next Month</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VAR-06" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-<!-- Property 7 -->
-<div class="card" data-search="commercial shop dindoli, surat">
-<img src="https://i.ibb.co/x947GS3/c2e7cf2f-be82-4267-bd7f-9273bf0df685.jpg" alt="Commercial Shop Dindoli">
-<div class="content">
-<h3>Commercial Shop</h3>
-<p>📍 Dindoli, Surat</p>
-<p><b>Property ID:</b> MRG-DIN-07</p>
-<div class="price">Reserve Price: ₹ 18,36,000</div>
-<div class="auction-date">📅 Auction Date: 23 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-07" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-<!-- Property 8 -->
-<div class="card" data-search="2 shops commercial shop dindoli, surat">
-<img src="https://i.ibb.co/3YGd5HVt/3d12a3590af6149d3168de2e748c7340.jpg" alt="2 Shops Dindoli">
-<div class="content">
-<h3>2 Commercial Shops</h3>
-<p>📍 Dindoli, Surat</p>
-<p><b>Property ID:</b> MRG-DIN-08</p>
-<div class="price">Reserve Price: ₹ 32,08,000</div>
-<div class="auction-date">📅 Auction Date: 29 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-DIN-08" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-<!-- Property 9 -->
-<div class="card" data-search="individual house jolva, palsana">
-<img src="https://i.ibb.co/CdmbF3Q/a90194a7975dd15878c701ef28761803.jpg" alt="Individual House Jolva">
-<div class="content">
-<h3>Individual House</h3>
-<p>📍 Jolva, Palsana</p>
-<p><b>Property ID:</b> MRG-JOL-09</p>
-<div class="price">Reserve Price: ₹ 6,87,000</div>
-<div class="auction-date">📅 Auction Date: 7 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-JOL-09" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-<!-- Property 10 -->
-<div class="card" data-search="residential property house kareli, palsana">
-<img src="https://i.ibb.co/jPTLgBhm/804a82183747b6fa144789a10f537513.jpg" alt="Residential Property Kareli">
-<div class="content">
-<h3>Residential Property</h3>
-<p>📍 Kareli, Palsana</p>
-<p><b>Property ID:</b> MRG-KAR-10</p>
-<div class="price">Reserve Price: ₹ 4,30,000</div>
-<div class="auction-date">📅 Auction Date: 15 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-KAR-10" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-<!-- Property 11 -->
-<div class="card" data-search="bunglow soyani, surat">
-<img src="https://i.ibb.co/Q0fZSzT/e668041a9b901b4ca3315038d4abbe7e.jpg" alt="Bunglow Soyani">
-<div class="content">
-<h3>Bunglow</h3>
-<p>📍 Soyani, Surat</p>
-<p><b>Property ID:</b> MRG-SOY-11</p>
-<div class="price">Reserve Price: ₹ 13,50,000</div>
-<div class="auction-date">📅 Auction Date: 16 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-SOY-11" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-<!-- Property 12 -->
-<div class="card" data-search="flat umbergaon, valsad">
-<img src="https://i.ibb.co/5hz349m9/88af2c0589e1b5ed582787dab66fd0c9.png" alt="Flat Umbergaon">
-<div class="content">
-<h3>Residential Flat</h3>
-<p>📍 Umbergaon, Valsad</p>
-<p><b>Property ID:</b> MRG-UMB-12</p>
-<div class="price">Reserve Price: ₹ 9,40,000</div>
-<div class="auction-date">📅 Auction Date: 9 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-UMB-12" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-<!-- Property 13 -->
-<div class="card" data-search="flat valwada, surat">
-<img src="https://i.ibb.co/fBdRcYy/fb640c90c80606d60c7f0009c7a4223d.jpg" alt="Flat Valwada">
-<div class="content">
-<h3>Residential Flat</h3>
-<p>📍 Valwada, valsad</p>
-<p><b>Property ID:</b> MRG-VAL-13</p>
-<div class="price">Reserve Price: ₹ 13,40,000</div>
-<div class="auction-date">📅 Auction Date: 24 September</div>
-<div class="btns">
-<a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20MRG-VAL-13" target="_blank">WhatsApp</a>
-<a class="btn call" href="tel:+919099912777">Call</a>
-</div>
-</div></div>
-
-</div></div>
-<footer>© 2026 MR Group Auction Property | All Rights Reserved</footer>
 <script>
 function filterCards(){
-let q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.card').forEach(c=>{
-c.style.display=c.dataset.search.includes(q)?'block':'none';
-});
+  let q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(c => {
+    c.style.display = c.dataset.search.includes(q) ? 'flex' : 'none';
+  });
+}
+
+function filterCategory(cat){
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  document.querySelectorAll('.card').forEach(c => {
+    if(cat === 'all' || c.dataset.category === cat){
+      c.style.display = 'flex';
+    } else {
+      c.style.display = 'none';
+    }
+  });
 }
 </script>
-</body></html>
+</body>
+</html>
