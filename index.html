@@ -116,12 +116,6 @@ header p {
   transform: translateY(-2px);
 }
 
-.admin-trigger-btn {
-  background: var(--gold-gradient);
-  color: var(--royal-dark);
-  font-weight: 700;
-}
-
 /* Stats Ribbon */
 .stats-bar {
   background: rgba(6, 13, 26, 0.8);
@@ -415,82 +409,6 @@ header p {
   background: #047857;
 }
 
-/* Modal Styling (Admin Form) */
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.admin-form-box {
-  background: #0f172a;
-  border: 1px solid var(--gold-primary);
-  padding: 30px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
-}
-
-.admin-form-box h2 {
-  font-family: 'Cinzel', serif;
-  color: var(--gold-primary);
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 13px;
-  margin-bottom: 5px;
-  color: #cbd5e1;
-}
-
-.form-group input, .form-group select {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #334155;
-  background: #1e293b;
-  color: #fff;
-  box-sizing: border-box;
-  outline: none;
-}
-
-.form-group input:focus, .form-group select:focus {
-  border-color: var(--gold-primary);
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 14px;
-  background: var(--gold-gradient);
-  border: none;
-  border-radius: 8px;
-  font-weight: 800;
-  cursor: pointer;
-  color: var(--royal-dark);
-  margin-top: 10px;
-  font-size: 15px;
-}
-
-.close-btn {
-  float: right;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  line-height: 1;
-}
-
 /* Floating WhatsApp */
 .float-wa {
   position: fixed;
@@ -538,7 +456,6 @@ footer p { margin: 5px 0; }
   <h1>MR GROUP AUCTION PROPERTY</h1>
   <p>Verified Bank Auction Properties Across Surat & Vapi Region</p>
   <div class="header-contact">
-    <button class="header-btn admin-trigger-btn" onclick="openAdminModal()"><i class="fa-solid fa-plus-circle"></i> + Add Property</button>
     <a href="tel:+919099912777" class="header-btn"><i class="fa-solid fa-phone"></i> +91 90999 12777</a>
     <a href="https://wa.me/919099912777" target="_blank" class="header-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Concierge</a>
   </div>
@@ -576,44 +493,6 @@ footer p { margin: 5px 0; }
     </div>
 </div>
 
-<div class="modal-overlay" id="adminModal">
-  <div class="admin-form-box">
-    <span class="close-btn" onclick="closeAdminModal()">&times;</span>
-    <h2>Add New Property</h2>
-    <form id="propForm" onsubmit="saveProperty(event)">
-      <div class="form-group">
-        <label>Property Title</label>
-        <input type="text" id="pTitle" placeholder="e.g. 3 BHK Luxury Flat" required>
-      </div>
-      <div class="form-group">
-        <label>Category</label>
-        <select id="pCategory">
-          <option value="flat">Flat</option>
-          <option value="bunglow">Bunglow</option>
-          <option value="shop">Commercial</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Location</label>
-        <input type="text" id="pLocation" placeholder="e.g. Vesu, Surat" required>
-      </div>
-      <div class="form-group">
-        <label>Reserve Price (₹)</label>
-        <input type="text" id="pPrice" placeholder="e.g. 45,00,000" required>
-      </div>
-      <div class="form-group">
-        <label>Auction Date</label>
-        <input type="text" id="pDate" placeholder="e.g. 25 September" required>
-      </div>
-      <div class="form-group">
-        <label>Image URL (Direct Link)</label>
-        <input type="url" id="pImg" placeholder="https://i.ibb.co/..." required>
-      </div>
-      <button type="submit" class="submit-btn">Publish Property Live</button>
-    </form>
-  </div>
-</div>
-
 <a href="https://wa.me/919099912777" class="float-wa" target="_blank" title="Direct WhatsApp Assistance">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
@@ -624,8 +503,8 @@ footer p { margin: 5px 0; }
 </footer>
 
 <script>
-// All 13 Original Initial Properties
-const defaultProperties = [
+// All 13 Auction Properties
+const properties = [
   { id: 'MRG-ALT-01', title: '2 BHK Flat', category: 'flat', location: 'Althan, Surat', price: '34,65,000', date: 'Next Month', img: 'https://i.ibb.co/1tS4h49n/Whats-App-Image-2026-08-30-at-3-14-45-AM.jpg' },
   { id: 'MRG-DIN-02', title: 'Commercial Shop', category: 'shop', location: 'Dindoli, Surat', price: '70,20,000', date: '10 September', img: 'https://i.ibb.co/C5VXvzDr/uma-plaza-dindoli.jpg' },
   { id: 'MRG-VES-03', title: '4 BHK Flat (Star Galaxy)', category: 'flat', location: 'Vesu, Surat', price: '87,00,000', date: '16 September', img: 'https://i.ibb.co/hR6ThfJp/star-galaxy-vesu.png' },
@@ -642,12 +521,10 @@ const defaultProperties = [
 ];
 
 function loadProperties() {
-  const saved = JSON.parse(localStorage.getItem('myProperties')) || [];
-  const allProps = [...defaultProperties, ...saved];
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
 
-  allProps.forEach((item) => {
+  properties.forEach((item) => {
     grid.innerHTML += `
       <div class="card" data-category="${item.category}" data-search="${item.title.toLowerCase()} ${item.location.toLowerCase()}">
         <div class="card-img-wrap">
@@ -672,36 +549,6 @@ function loadProperties() {
       </div>
     `;
   });
-}
-
-function openAdminModal() { document.getElementById('adminModal').style.display = 'flex'; }
-function closeAdminModal() { document.getElementById('adminModal').style.display = 'none'; }
-
-function saveProperty(e) {
-  e.preventDefault();
-  const newProp = {
-    id: 'MRG-NEW-' + Date.now().toString().slice(-3),
-    title: document.getElementById('pTitle').value,
-    category: document.getElementById('pCategory').value,
-    location: document.getElementById('pLocation').value,
-    price: document.getElementById('pPrice').value,
-    date: document.getElementById('pDate').value,
-    img: document.getElementById('pImg').value
-  };
-
-  const existing = JSON.parse(localStorage.getItem('myProperties')) || [];
-  existing.push(newProp);
-  localStorage.setItem('myProperties', JSON.stringify(existing));
-
-  const waText = `*NEW AUCTION PROPERTY AVAILABLE*%0A%0A*Title:* ${newProp.title}%0A*Location:* ${newProp.location}%0A*Price:* ₹${newProp.price}%0A*Date:* ${newProp.date}%0A%0A*Image:* ${newProp.img}`;
-  
-  if(confirm("Property successfully published on Website! Do you want to broadcast this on WhatsApp?")) {
-    window.open(`https://wa.me/?text=${waText}`, '_blank');
-  }
-
-  closeAdminModal();
-  document.getElementById('propForm').reset();
-  loadProperties();
 }
 
 function filterCards(){
