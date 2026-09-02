@@ -479,7 +479,7 @@ footer p { margin: 5px 0; }
 <div class="container">
   <div class="search-box">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input class="search" id="search" placeholder="Search by area, location, or type (e.g. Vesu, Bunglow, Commercial)..." onkeyup="filterCards()">
+    <input class="search" id="search" placeholder="Search by area, location, or type (e.g. Vesu, Palanpore, Plot)..." onkeyup="filterCards()">
   </div>
 
   <div class="filter-tabs">
@@ -487,6 +487,7 @@ footer p { margin: 5px 0; }
     <button class="tab-btn" onclick="filterCategory('flat')">Luxury Flats</button>
     <button class="tab-btn" onclick="filterCategory('bunglow')">Bunglows & Villas</button>
     <button class="tab-btn" onclick="filterCategory('shop')">Commercial Spaces</button>
+    <button class="tab-btn" onclick="filterCategory('plot')">Plots & Land</button>
   </div>
 
   <div class="grid" id="grid">
@@ -503,7 +504,7 @@ footer p { margin: 5px 0; }
 </footer>
 
 <script>
-// All 13 Auction Properties
+// All 20 Properties (1 to 20 Complete)
 const properties = [
   { id: 'MRG-ALT-01', title: '2 BHK Flat', category: 'flat', location: 'Althan, Surat', price: '34,65,000', date: 'Next Month', img: 'https://i.ibb.co/1tS4h49n/Whats-App-Image-2026-08-30-at-3-14-45-AM.jpg' },
   { id: 'MRG-DIN-02', title: 'Commercial Shop', category: 'shop', location: 'Dindoli, Surat', price: '70,20,000', date: '10 September', img: 'https://i.ibb.co/C5VXvzDr/uma-plaza-dindoli.jpg' },
@@ -517,7 +518,16 @@ const properties = [
   { id: 'MRG-KAR-10', title: 'Residential Villa', category: 'bunglow', location: 'Kareli, Palsana', price: '4,30,000', date: '15 September', img: 'https://i.ibb.co/jPTLgBhm/804a82183747b6fa144789a10f537513.jpg' },
   { id: 'MRG-SOY-11', title: 'Luxury Bunglow', category: 'bunglow', location: 'Soyani, Surat', price: '13,50,000', date: '16 September', img: 'https://i.ibb.co/Q0fZSzT/e668041a9b901b4ca3315038d4abbe7e.jpg' },
   { id: 'MRG-UMB-12', title: 'Residential Flat', category: 'flat', location: 'Umbergaon, Valsad', price: '9,40,000', date: '9 September', img: 'https://i.ibb.co/5hz349m9/88af2c0589e1b5ed582787dab66fd0c9.png' },
-  { id: 'MRG-VAL-13', title: 'Residential Flat', category: 'flat', location: 'Valwada, Surat', price: '13,40,000', date: '24 September', img: 'https://i.ibb.co/fBdRcYy/fb640c90c80606d60c7f0009c7a4223d.jpg' }
+  { id: 'MRG-VAL-13', title: 'Residential Flat', category: 'flat', location: 'Valwada, Surat', price: '13,40,000', date: '24 September', img: 'https://i.ibb.co/fBdRcYy/fb640c90c80606d60c7f0009c7a4223d.jpg' },
+  
+  // Newly Added Properties (No. 14 to 20)
+  { id: 'MRG-PAL-14', title: 'Residential Flat', category: 'flat', location: 'Palanpore, Adajan, Surat', price: '47,47,000', date: 'Next Month', img: 'https://i.ibb.co/mVXjCV6V/7e64788033ee129dd442aca08b67304c.jpg' },
+  { id: 'MRG-CHO-15', title: 'Residential Flat', category: 'flat', location: 'Choryasi, Surat', price: '73,00,000', date: '5 September', img: 'https://i.ibb.co/5xWGGNZY/b2bd2bb75d65f38048ca5270d74fea05.jpg' },
+  { id: 'MRG-ADA-16', title: 'Residential Flat', category: 'flat', location: 'Adajan, Surat', price: '26,46,000', date: '07 September', img: 'https://i.ibb.co/3Qknf9q/1300c20ee91adead7b6dc467cb517697.png' },
+  { id: 'MRG-VES-17', title: 'Commercial Shop', category: 'shop', location: 'Vesu, Surat', price: '4,62,000', date: '8 September', img: 'https://i.ibb.co/vvrbW1LK/0c06da34dd7be2f99b496320f7b0db73.jpg' },
+  { id: 'MRG-VES-18', title: 'Luxury Flat', category: 'flat', location: 'Vesu, Surat', price: '2,20,00,000', date: '16 September', img: 'https://i.ibb.co/Pv3R1Mdb/e79d031f06c1dafc8993d482e4f2cd98.jpg' },
+  { id: 'MRG-KAM-19', title: 'Residential Plot', category: 'plot', location: 'Kamrej, Surat', price: '15,30,000', date: '11 September', img: 'https://i.ibb.co/1Y5gG3Jk/48377c151c016b31f763ec03123fa0ef.jpg' },
+  { id: 'MRG-VAV-20', title: 'Residential Plot', category: 'plot', location: 'Vav, Kamrej, Surat', price: '24,30,000', date: '07 September', img: 'https://i.ibb.co/PsNCN8YH/9f7c99be44774ab7e775dafb37083eed.png' }
 ];
 
 function loadProperties() {
