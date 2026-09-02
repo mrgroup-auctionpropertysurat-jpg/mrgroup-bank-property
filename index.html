@@ -29,7 +29,6 @@ body {
   min-height: 100vh;
 }
 
-/* Header & Royal Banner */
 header {
   background: linear-gradient(180deg, rgba(3, 7, 16, 0.85) 0%, rgba(6, 13, 26, 0.95) 100%), 
               url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600') center/cover fixed;
@@ -116,7 +115,6 @@ header p {
   transform: translateY(-2px);
 }
 
-/* Stats Ribbon */
 .stats-bar {
   background: rgba(6, 13, 26, 0.8);
   backdrop-filter: blur(15px);
@@ -132,9 +130,7 @@ header p {
   z-index: 10;
 }
 
-.stat-item {
-  text-align: center;
-}
+.stat-item { text-align: center; }
 
 .stat-item h2 {
   margin: 0;
@@ -154,14 +150,12 @@ header p {
   letter-spacing: 1px;
 }
 
-/* Main Container */
 .container {
   max-width: 1240px;
   margin: auto;
   padding: 0 20px 60px;
 }
 
-/* Search Box */
 .search-box {
   position: relative;
   margin-bottom: 30px;
@@ -181,9 +175,7 @@ header p {
   transition: all 0.3s ease;
 }
 
-.search::placeholder {
-  color: #64748b;
-}
+.search::placeholder { color: #64748b; }
 
 .search:focus {
   border-color: var(--gold-primary);
@@ -200,7 +192,6 @@ header p {
   font-size: 18px;
 }
 
-/* Category Filters */
 .filter-tabs {
   display: flex;
   gap: 12px;
@@ -230,7 +221,6 @@ header p {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
-/* Property Cards Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -269,9 +259,7 @@ header p {
   transition: transform 0.6s ease;
 }
 
-.card:hover img {
-  transform: scale(1.08);
-}
+.card:hover img { transform: scale(1.08); }
 
 .verified-tag {
   position: absolute;
@@ -325,9 +313,7 @@ header p {
   font-weight: 500;
 }
 
-.location i {
-  color: var(--gold-primary);
-}
+.location i { color: var(--gold-primary); }
 
 .prop-id {
   font-size: 13px;
@@ -369,25 +355,27 @@ header p {
 }
 
 .btns {
-  display: flex;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
   margin-top: auto;
 }
 
 .btn {
-  flex: 1;
   text-align: center;
-  padding: 12px;
+  padding: 10px 4px;
   border-radius: 10px;
   color: #fff;
   text-decoration: none;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 5px;
+  border: none;
+  cursor: pointer;
 }
 
 .call {
@@ -401,15 +389,21 @@ header p {
   color: var(--gold-primary);
 }
 
-.wa {
-  background: #059669;
-}
+.wa { background: #059669; }
+.wa:hover { background: #047857; }
 
-.wa:hover {
-  background: #047857;
+.share-btn {
+  background: var(--gold-gradient);
+  color: var(--royal-dark);
 }
+.share-btn:hover { box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
 
-/* Floating WhatsApp */
+.dl-btn {
+  background: #0284c7;
+  color: #fff;
+}
+.dl-btn:hover { background: #0369a1; }
+
 .float-wa {
   position: fixed;
   bottom: 30px;
@@ -429,9 +423,7 @@ header p {
   transition: all 0.3s ease;
 }
 
-.float-wa:hover {
-  transform: scale(1.1);
-}
+.float-wa:hover { transform: scale(1.1); }
 
 footer {
   background: var(--royal-dark);
@@ -504,7 +496,6 @@ footer p { margin: 5px 0; }
 </footer>
 
 <script>
-// All 20 Properties (1 to 20 Complete)
 const properties = [
   { id: 'MRG-ALT-01', title: '2 BHK Flat', category: 'flat', location: 'Althan, Surat', price: '34,65,000', date: 'Next Month', img: 'https://i.ibb.co/1tS4h49n/Whats-App-Image-2026-08-30-at-3-14-45-AM.jpg' },
   { id: 'MRG-DIN-02', title: 'Commercial Shop', category: 'shop', location: 'Dindoli, Surat', price: '70,20,000', date: '10 September', img: 'https://i.ibb.co/C5VXvzDr/uma-plaza-dindoli.jpg' },
@@ -519,8 +510,6 @@ const properties = [
   { id: 'MRG-SOY-11', title: 'Luxury Bunglow', category: 'bunglow', location: 'Soyani, Surat', price: '13,50,000', date: '16 September', img: 'https://i.ibb.co/Q0fZSzT/e668041a9b901b4ca3315038d4abbe7e.jpg' },
   { id: 'MRG-UMB-12', title: 'Residential Flat', category: 'flat', location: 'Umbergaon, Valsad', price: '9,40,000', date: '9 September', img: 'https://i.ibb.co/5hz349m9/88af2c0589e1b5ed582787dab66fd0c9.png' },
   { id: 'MRG-VAL-13', title: 'Residential Flat', category: 'flat', location: 'Valwada, Surat', price: '13,40,000', date: '24 September', img: 'https://i.ibb.co/fBdRcYy/fb640c90c80606d60c7f0009c7a4223d.jpg' },
-  
-  // Newly Added Properties (No. 14 to 20)
   { id: 'MRG-PAL-14', title: 'Residential Flat', category: 'flat', location: 'Palanpore, Adajan, Surat', price: '47,47,000', date: 'Next Month', img: 'https://i.ibb.co/mVXjCV6V/7e64788033ee129dd442aca08b67304c.jpg' },
   { id: 'MRG-CHO-15', title: 'Residential Flat', category: 'flat', location: 'Choryasi, Surat', price: '73,00,000', date: '5 September', img: 'https://i.ibb.co/5xWGGNZY/b2bd2bb75d65f38048ca5270d74fea05.jpg' },
   { id: 'MRG-ADA-16', title: 'Residential Flat', category: 'flat', location: 'Adajan, Surat', price: '26,46,000', date: '07 September', img: 'https://i.ibb.co/3Qknf9q/1300c20ee91adead7b6dc467cb517697.png' },
@@ -529,6 +518,46 @@ const properties = [
   { id: 'MRG-KAM-19', title: 'Residential Plot', category: 'plot', location: 'Kamrej, Surat', price: '15,30,000', date: '11 September', img: 'https://i.ibb.co/1Y5gG3Jk/48377c151c016b31f763ec03123fa0ef.jpg' },
   { id: 'MRG-VAV-20', title: 'Residential Plot', category: 'plot', location: 'Vav, Kamrej, Surat', price: '24,30,000', date: '07 September', img: 'https://i.ibb.co/PsNCN8YH/9f7c99be44774ab7e775dafb37083eed.png' }
 ];
+
+function downloadPhoto(url, filename) {
+  fetch(url)
+    .then(response => response.blob())
+    .then(blob => {
+      const blobUrl = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = blobUrl;
+      a.download = filename + '.jpg';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(blobUrl);
+    })
+    .catch(() => window.open(url, '_blank'));
+}
+
+function shareProperty(id) {
+  const p = properties.find(item => item.id === id);
+  if (!p) return;
+  
+  const text = `*BANK AUCTION PROPERTY DEAL*%0A%0A` +
+               `📌 *Property ID:* ${p.id}%0A` +
+               `🏠 *Title:* ${p.title}%0A` +
+               `📍 *Location:* ${p.location}%0A` +
+               `💰 *Reserve Price:* ₹ ${p.price}%0A` +
+               `📅 *Auction Date:* ${p.date}%0A` +
+               `🖼️ *Image Link:* ${p.img}%0A%0A` +
+               `📞 *Contact MR Group:* +91 90999 12777`;
+
+  if (navigator.share) {
+    navigator.share({
+      title: p.title,
+      text: `BANK AUCTION PROPERTY DEAL\nID: ${p.id}\nPrice: ₹${p.price}\nLocation: ${p.location}`,
+      url: p.img
+    }).catch(() => {});
+  } else {
+    window.open(`https://wa.me/?text=${text}`, '_blank');
+  }
+}
 
 function loadProperties() {
   const grid = document.getElementById('grid');
@@ -552,8 +581,10 @@ function loadProperties() {
           </div>
           <div class="auction-date"><i class="fa-regular fa-calendar-days"></i> Auction Date: ${item.date}</div>
           <div class="btns">
-            <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20${encodeURIComponent(item.id)}" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a class="btn wa" href="https://wa.me/919099912777?text=I%20am%20interested%20in%20${encodeURIComponent(item.id)}" target="_blank"><i class="fa-brands fa-whatsapp"></i> Inquiry</a>
             <a class="btn call" href="tel:+919099912777"><i class="fa-solid fa-phone"></i> Call</a>
+            <button class="btn share-btn" onclick="shareProperty('${item.id}')"><i class="fa-solid fa-share-nodes"></i> Share</button>
+            <button class="btn dl-btn" onclick="downloadPhoto('${item.img}', '${item.id}')"><i class="fa-solid fa-download"></i> Save Photo</button>
           </div>
         </div>
       </div>
